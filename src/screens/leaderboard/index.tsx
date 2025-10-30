@@ -36,7 +36,9 @@ const Leaderboard: React.FC<LeaderboardProps> = () => {
     const [leaderBoardData, setLeaderBoardData] = useState<any>({});
     // const [activeTab, setActiveTab] = useState('overall');
     const [isLoading, setIsLoading] = useState(false);
-    const { getDailyData, getWeeklyData, getMonthlyData, getAllTimeData, userRanks } = useAppSelector((state) => state.leaderboard);
+    const { getDailyData, getWeeklyData, getMonthlyData, getAllTimeData,
+        //  userRanks 
+        } = useAppSelector((state) => state.leaderboard);
     const [activeTab, setActiveTab] = useState("Weekly");
 
     const handleTabClick = (tab: string) => {
