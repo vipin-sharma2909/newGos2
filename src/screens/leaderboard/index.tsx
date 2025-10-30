@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { FaArrowLeft, FaCrown } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+// import { FaArrowLeft, FaCrown } from 'react-icons/fa';
+// import { useNavigate } from 'react-router-dom';
 import { leaderboardApi } from "../../api";
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import Header from '../../components/header';
@@ -9,8 +9,8 @@ import { Crown, Heart } from 'lucide-react';
 // import { getContestId } from '../../utils/commonFunctions';
 import {
     setDailyData, setGameMode,
-    setUserRanks, setAllTimeData, setMonthlyData, setWeeklyData, setGetDailyData,
-    setGetWeeklyData, setGetMonthlyData, setGetAllTimeData
+    setUserRanks, setAllTimeData, setMonthlyData, setWeeklyData,
+    
 } from './leaderboardSlice';
 
 // import firstImage from "../../assets/1.png";
@@ -30,8 +30,9 @@ interface LeaderboardProps {
 }
 
 const Leaderboard: React.FC<LeaderboardProps> = () => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const dispatch = useAppDispatch();
+    //@ts-ignore
     const [leaderBoardData, setLeaderBoardData] = useState<any>({});
     // const [activeTab, setActiveTab] = useState('overall');
     const [isLoading, setIsLoading] = useState(false);
@@ -55,50 +56,50 @@ const Leaderboard: React.FC<LeaderboardProps> = () => {
     //     { id: '7', name: 'Player 7', phone: '98110*****', score: 800, avatar: '/api/placeholder/60/60' },
     // ];
 
-    const tabs = ['overall', 'monthly', 'weekly', 'today'];
+    // const tabs = ['overall', 'monthly', 'weekly', 'today'];
 
     // const topThree = leaderboardData.slice(0, 3);
     // const restOfPlayers = leaderboardData.slice(3);
 
-    const getPercentage = (data: any) => {
-        const noOfUsers = data ? data?.users?.length : 1;
-        let currentUserRank = 1;
-        if (getDailyData) {
-            currentUserRank = userRanks ? userRanks?.daily_data?.rank : 1;
-        }
-        else if (getWeeklyData) {
-            currentUserRank = userRanks ? userRanks?.weekly_data?.rank : 1;
-        }
-        else if (getMonthlyData) {
-            currentUserRank = userRanks ? userRanks?.monthly_data?.rank : 1;
-        }
-        else if (getAllTimeData) {
-            currentUserRank = userRanks ? userRanks?.all_time_data?.rank : 1;
-        }
-        const percentage = Math.floor((((noOfUsers - currentUserRank) * 100) / noOfUsers));
-        console.log(noOfUsers, currentUserRank, percentage, "percentage");
-        return percentage
+    // const getPercentage = (data: any) => {
+    //     const noOfUsers = data ? data?.users?.length : 1;
+    //     let currentUserRank = 1;
+    //     if (getDailyData) {
+    //         currentUserRank = userRanks ? userRanks?.daily_data?.rank : 1;
+    //     }
+    //     else if (getWeeklyData) {
+    //         currentUserRank = userRanks ? userRanks?.weekly_data?.rank : 1;
+    //     }
+    //     else if (getMonthlyData) {
+    //         currentUserRank = userRanks ? userRanks?.monthly_data?.rank : 1;
+    //     }
+    //     else if (getAllTimeData) {
+    //         currentUserRank = userRanks ? userRanks?.all_time_data?.rank : 1;
+    //     }
+    //     const percentage = Math.floor((((noOfUsers - currentUserRank) * 100) / noOfUsers));
+    //     console.log(noOfUsers, currentUserRank, percentage, "percentage");
+    //     return percentage
 
-    }
+    // }
 
-    const getRank = () => {
-        let rank = 1;
-        if (getDailyData) {
-            rank = userRanks ? userRanks?.daily_data?.rank : 1;
-        }
-        else if (getWeeklyData) {
-            rank = userRanks ? userRanks?.weekly_data?.rank : 1;
-        }
-        else if (getMonthlyData) {
-            rank = userRanks ? userRanks?.monthly_data?.rank : 1;
-        }
-        else if (getAllTimeData) {
-            rank = userRanks ? userRanks?.all_time_data?.rank : 1;
-        }
+    // const getRank = () => {
+    //     let rank = 1;
+    //     if (getDailyData) {
+    //         rank = userRanks ? userRanks?.daily_data?.rank : 1;
+    //     }
+    //     else if (getWeeklyData) {
+    //         rank = userRanks ? userRanks?.weekly_data?.rank : 1;
+    //     }
+    //     else if (getMonthlyData) {
+    //         rank = userRanks ? userRanks?.monthly_data?.rank : 1;
+    //     }
+    //     else if (getAllTimeData) {
+    //         rank = userRanks ? userRanks?.all_time_data?.rank : 1;
+    //     }
 
-        console.log("Rank", rank);
-        return rank;
-    }
+    //     console.log("Rank", rank);
+    //     return rank;
+    // }
 
     const tabStyle = (tab: string) => ({
         padding: "6px 16px",

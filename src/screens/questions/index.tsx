@@ -8,7 +8,7 @@ import { questionApis } from "../../api";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { useParams } from "react-router-dom";
 import { getNameAndContestId } from "../../commonFunctions";
-import Countdown from 'react-countdown';
+// import Countdown from 'react-countdown';
 import { setIsQuizCompleted, 
     setAnswerOptions,
      setCurrentQuestionId, 
@@ -26,11 +26,11 @@ import { setIsQuizCompleted,
 import confetti from "canvas-confetti";
 import ProgressBarTimer from "./ProgressBarTimer";
 
-interface Question {
-    contestId?: string;
-}
+// interface Question {
+//     contestId?: string;
+// }
 
-const Questions = ({ contestId }: Question) => {
+const Questions = () => {
     const dispatch = useAppDispatch();
     const { type } = useParams();
     const [loading, setLoading] = useState<boolean>(false);
@@ -42,8 +42,12 @@ const Questions = ({ contestId }: Question) => {
     const { playClickSound, playCorrectSound, playWrongSound } = useSound();
     // const [questionType, setQuestionType] = useState<string>();
 
-    const { nameAndContestId } = useAppSelector((state) => state.home);
-    const { correctAnswer, currentQuestionIndex,  currentQuestionId, answerOptions, skippedAnswerCount, correctAnswerCount, wrongAnswerCount, question, totalQuestions, isQuizCompleted,   } = useAppSelector((state) => state.questions);
+    // const { nameAndContestId } = useAppSelector((state) => state.home);
+    const { correctAnswer, currentQuestionIndex,  currentQuestionId, answerOptions, 
+        // skippedAnswerCount, correctAnswerCount, wrongAnswerCount, 
+        question, 
+        // totalQuestions, isQuizCompleted,   
+    } = useAppSelector((state) => state.questions);
 
     const { opt1, opt2, opt3, opt4 } = answerOptions;
     const noOfQuestionsPlayed = 1;
@@ -159,7 +163,7 @@ const Questions = ({ contestId }: Question) => {
         });
        
     }, [skipButtonClicked])
-    const Completionist = () => <span>You are good to go!</span>;
+    // const Completionist = () => <span>You are good to go!</span>;
 
 
 

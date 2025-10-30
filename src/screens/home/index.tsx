@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
-import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { useAppDispatch } from '../../hooks/redux';
 // import Carousel from '../../components/carousel';
 // Update the import path below if Carousel is located elsewhere, for example:
 import Carousel from "../../components/carousel";
@@ -13,7 +13,7 @@ import jackpotPng from "../../assets/jackpotPng.png";
 import { contests } from '../../api';
 import { Check, CheckCircle, Trophy } from 'lucide-react';
 import { QuestionType } from '../../utils/questionsEnum';
-import { setContestsData, setNameAndContestId } from './homeSlice';
+import { setContestsData } from './homeSlice';
 import { setNameAndContestIdInLS } from '../../commonFunctions';
 
 // Or create the Carousel component at '../../components/carousel.tsx'
